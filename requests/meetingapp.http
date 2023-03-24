@@ -1,0 +1,75 @@
+# Query employees
+GET http://localhost:8080/api/employees
+Accept: application/json
+
+###
+
+# Query meetings
+GET http://localhost:8080/api/meetings
+Accept: application/json
+
+###
+
+# Query meetings for Employee#1
+GET http://localhost:8080/api/meetings-for-employee/1
+Accept: application/json
+
+###
+
+# Query meetings for Employee#2
+GET http://localhost:8080/api/meetings-for-employee/2
+Accept: application/json
+
+###
+
+# Create meeting1 (Employee#1, THU, 15:30, 30 minutes)
+POST http://localhost:8080/api/meetings
+Content-Type: application/json
+
+{
+  "organizerId": 1,
+  "dayOfWeek": "THU",
+  "hour": 15,
+  "minute": 30,
+  "durationInMinutes": 30
+}
+
+###
+
+# Create meeting2 (Employee#2, WED, 9:30, 180 minutes)
+POST http://localhost:8080/api/meetings
+Content-Type: application/json
+
+{
+  "organizerId": 2,
+  "dayOfWeek": "WED",
+  "hour": 9,
+  "minute": 30,
+  "durationInMinutes": 180
+}
+
+###
+
+# Create meeting3 (Employee#3, MON, 15:30, 60 minutes)
+POST http://localhost:8080/api/meetings
+Content-Type: application/json
+
+{
+  "organizerId": 3,
+  "dayOfWeek": "MON",
+  "hour": 15,
+  "minute": 30,
+  "durationInMinutes": 60
+}
+
+###
+
+# Query employee for certain time
+GET http://localhost:8080/api/booked-by/MON/16:30
+Content-Type: application/json
+
+###
+
+# Get free hours
+GET http://localhost:8080/api/free-hours
+Content-Type: application/json
